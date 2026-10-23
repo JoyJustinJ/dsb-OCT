@@ -711,6 +711,37 @@ button, input, select, textarea {
   margin-left: 2px;
 }
 
+/* Instagram Work Button Enhancement */
+.btn-insta-work {
+  text-decoration: none;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(14, 30, 56, 0.65);
+}
+
+.btn-insta-work:hover {
+  background: rgba(225, 48, 108, 0.16);
+  border-color: rgba(225, 48, 108, 0.65);
+  box-shadow: 0 4px 20px rgba(225, 48, 108, 0.35);
+  color: #ffffff;
+}
+
+.insta-play-circle {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  box-shadow: 0 0 12px rgba(225, 48, 108, 0.55);
+}
+
+.insta-inline-icon {
+  color: #f43f5e;
+  filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.6));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.btn-insta-work:hover .insta-inline-icon {
+  transform: scale(1.22) rotate(6deg);
+  color: #fb7185;
+}
+
 /* Mobile Toggle */
 .mobile-toggle {
   display: none;
