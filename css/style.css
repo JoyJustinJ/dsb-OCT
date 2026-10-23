@@ -13,11 +13,11 @@
   --cyan-accent: #00d2ff;
   --cyan-glow: rgba(0, 210, 255, 0.4);
   
-  --dark-navy: #050d1a;
-  --dark-hero: #08162b;
-  --navy-card: rgba(14, 29, 53, 0.85);
+  --dark-navy: #0d223f;
+  --dark-hero: #0e284b;
+  --navy-card: rgba(14, 38, 70, 0.72);
   --navy-border: rgba(255, 255, 255, 0.12);
-  --navy-glass: rgba(11, 26, 49, 0.72);
+  --navy-glass: rgba(12, 30, 56, 0.85);
   
   --whatsapp-green: #25D366;
   --whatsapp-hover: #1ebd5a;
@@ -36,12 +36,12 @@
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 6px 18px rgba(0, 50, 120, 0.08);
-  --shadow-lg: 0 15px 35px -5px rgba(0, 50, 120, 0.12), 0 5px 15px rgba(0, 0, 0, 0.04);
-  --shadow-xl: 0 25px 50px -12px rgba(0, 40, 100, 0.25);
-  --shadow-glow: 0 0 25px rgba(0, 140, 255, 0.4);
+  /* Shadows - Lighter, clean, modern & airy */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-xl: 0 18px 45px rgba(15, 23, 42, 0.10);
+  --shadow-glow: 0 0 20px rgba(0, 140, 255, 0.3);
   
   /* Border Radius */
   --radius-sm: 6px;
@@ -106,7 +106,7 @@ button, input, select, textarea {
    TOP NOTIFICATION BAR
    ========================================================================== */
 .top-bar {
-  background: #040b15;
+  background: #0b1a2f;
   color: #94a3b8;
   font-size: 0.84rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -235,17 +235,83 @@ button, input, select, textarea {
 .main-nav {
   position: sticky;
   top: 0;
-  background: rgba(8, 22, 43, 0.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(11, 26, 48, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 1000;
   transition: var(--transition);
 }
 
 .main-nav.scrolled {
-  background: rgba(5, 13, 26, 0.98);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background: rgba(8, 20, 38, 0.96);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Dedicated Mobile Direct Tap Call Button */
+.mobile-header-call {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0057b7 0%, #00d2ff 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 12px rgba(0, 102, 204, 0.4);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.mobile-header-call:hover, .mobile-header-call:active {
+  transform: scale(1.06);
+  box-shadow: 0 0 18px rgba(0, 210, 255, 0.65);
+  color: #ffffff;
+}
+
+/* Mobile Nav Drawer Actions Panel */
+.nav-mobile-cta {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  width: 100%;
+}
+
+.nav-mobile-cta-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin-bottom: 2px;
+}
+
+.btn-mobile-nav-call {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 102, 204, 0.2);
+  border: 1px solid rgba(0, 210, 255, 0.4);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-mobile-nav-call.alt-line {
+  background: rgba(13, 148, 136, 0.2);
+  border-color: rgba(45, 212, 191, 0.45);
+}
+
+.btn-mobile-nav-call:active {
+  transform: scale(0.98);
 }
 
 .nav-container {
@@ -701,7 +767,7 @@ button, input, select, textarea {
   object-position: center center;
 }
 
-/* Softer gradient overlay so the green rig truck, mountain, and water are vividly visible */
+/* Light, vivid gradient overlay so the authentic drilling rig truck, mountain, and sky are vividly visible */
 .hero-gradient-overlay {
   position: absolute;
   top: 0;
@@ -710,10 +776,10 @@ button, input, select, textarea {
   bottom: 0;
   background: linear-gradient(
     90deg, 
-    rgba(5, 13, 26, 0.75) 0%, 
-    rgba(5, 13, 26, 0.52) 42%, 
-    rgba(5, 13, 26, 0.20) 75%, 
-    rgba(5, 13, 26, 0.08) 100%
+    rgba(11, 26, 48, 0.72) 0%, 
+    rgba(11, 26, 48, 0.46) 48%, 
+    rgba(11, 26, 48, 0.16) 78%, 
+    rgba(11, 26, 48, 0.05) 100%
   );
   z-index: 2;
 }
@@ -723,8 +789,8 @@ button, input, select, textarea {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 90px;
-  background: linear-gradient(to top, rgba(5, 13, 26, 0.85), transparent);
+  height: 80px;
+  background: linear-gradient(to top, rgba(11, 26, 48, 0.75), transparent);
   z-index: 2;
 }
 
@@ -925,34 +991,47 @@ button, input, select, textarea {
    STATS BAR
    ========================================================================== */
 .stats-bar-section {
-  background: #040d1a;
-  padding: 38px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f8fafc;
+  padding: 34px 0;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 5;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .stat-item {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 10px;
+  padding: 14px 18px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 102, 204, 0.08);
+  border-color: rgba(0, 102, 204, 0.25);
 }
 
 .stat-icon-wrap {
   width: 48px;
   height: 48px;
-  background: rgba(0, 102, 204, 0.15);
-  border: 1px solid rgba(0, 210, 255, 0.25);
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--cyan-accent);
+  color: var(--primary);
   flex-shrink: 0;
 }
 
@@ -960,13 +1039,13 @@ button, input, select, textarea {
   font-family: var(--font-heading);
   font-size: 1.85rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #0f172a;
   line-height: 1.1;
 }
 
 .stat-label {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: #64748b;
   font-weight: 500;
 }
 
@@ -1275,7 +1354,7 @@ button, input, select, textarea {
    FOOTER
    ========================================================================== */
 .main-footer {
-  background: #040914;
+  background: #0b1a2f;
   color: #94a3b8;
   padding-top: 70px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -2099,12 +2178,20 @@ button, input, select, textarea {
    WATER FINDING SHOWCASE & DEVICE SPOTLIGHT
    ========================================================================== */
 .water-finding-spotlight {
-  background: linear-gradient(135deg, #06152b 0%, #0a2540 100%);
-  color: #fff;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 50%, #e0f2fe 100%);
+  color: var(--text-dark);
   padding: 80px 0;
-  border-top: 1px solid rgba(0, 210, 255, 0.25);
-  border-bottom: 1px solid rgba(0, 210, 255, 0.25);
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
   position: relative;
+}
+
+.water-finding-spotlight .section-title {
+  color: #0f172a;
+}
+
+.water-finding-spotlight .section-description {
+  color: #475569;
 }
 
 .water-finding-showcase-grid {
@@ -2116,12 +2203,12 @@ button, input, select, textarea {
 }
 
 .water-device-card {
-  background: radial-gradient(circle at 50% 40%, rgba(0, 102, 204, 0.22) 0%, rgba(8, 22, 44, 0.85) 75%);
-  border: 1px solid rgba(0, 210, 255, 0.35);
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 102, 204, 0.2);
   border-radius: 20px;
   padding: 32px 24px;
   text-align: center;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(0, 210, 255, 0.08);
+  box-shadow: 0 12px 35px rgba(0, 102, 204, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -2130,9 +2217,9 @@ button, input, select, textarea {
   position: absolute;
   top: 16px;
   left: 16px;
-  background: rgba(0, 210, 255, 0.15);
-  border: 1px solid rgba(0, 210, 255, 0.4);
-  color: var(--cyan-accent);
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 4px 12px;
@@ -2154,7 +2241,7 @@ button, input, select, textarea {
   width: auto;
   max-width: 90%;
   object-fit: contain;
-  filter: drop-shadow(0 15px 30px rgba(0, 210, 255, 0.45));
+  filter: drop-shadow(0 15px 25px rgba(0, 102, 204, 0.25));
   transition: transform 0.4s ease;
 }
 
@@ -2163,20 +2250,20 @@ button, input, select, textarea {
 }
 
 .water-device-info {
-  border-top: 1px solid rgba(0, 210, 255, 0.2);
+  border-top: 1px solid #f1f5f9;
   padding-top: 18px;
 }
 
 .water-device-info h3 {
   font-family: var(--font-heading);
-  color: #fff;
+  color: #0f172a;
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
 .water-device-info p {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 0.88rem;
   margin: 0;
   line-height: 1.5;
@@ -2189,20 +2276,21 @@ button, input, select, textarea {
 }
 
 .water-adv-card {
-  background: rgba(14, 29, 53, 0.7);
-  border: 1px solid rgba(0, 210, 255, 0.2);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 22px 24px;
-  backdrop-filter: blur(10px);
   display: flex;
   gap: 18px;
   align-items: flex-start;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
   transition: var(--transition);
 }
 
 .water-adv-card:hover {
-  background: rgba(14, 29, 53, 0.9);
-  border-color: rgba(0, 210, 255, 0.45);
+  background: #ffffff;
+  border-color: rgba(0, 102, 204, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 102, 204, 0.08);
   transform: translateX(4px);
 }
 
@@ -2210,32 +2298,32 @@ button, input, select, textarea {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(0, 102, 204, 0.3);
-  border: 1px solid rgba(0, 210, 255, 0.4);
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--cyan-accent);
+  color: #0284c7;
 }
 
 .water-adv-content h4 {
   font-family: var(--font-heading);
   font-size: 1.15rem;
   margin-bottom: 6px;
-  color: #fff;
+  color: #0f172a;
 }
 
 .water-adv-content p {
-  color: #cbd5e1;
+  color: #64748b;
   font-size: 0.88rem;
   line-height: 1.55;
   margin: 0;
 }
 
 .water-cta-box {
-  background: rgba(0, 102, 204, 0.25);
-  border: 1px solid rgba(0, 210, 255, 0.35);
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 102, 204, 0.25);
   border-radius: 16px;
   padding: 24px 32px;
   display: flex;
@@ -2243,17 +2331,18 @@ button, input, select, textarea {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
+  box-shadow: 0 8px 25px rgba(0, 102, 204, 0.06);
 }
 
 .water-cta-text h4 {
   font-family: var(--font-heading);
   font-size: 1.2rem;
-  color: #fff;
+  color: #0f172a;
   margin-bottom: 4px;
 }
 
 .water-cta-text p {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 0.95rem;
   margin: 0;
 }
@@ -2659,587 +2748,6 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   COMPREHENSIVE RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
-   ========================================================================== */
-
-/* Universal Responsive Image & Media Rules */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.service-img-wrap img,
-.fleet-img-wrap img,
-.gallery-card img,
-.story-img-main {
-  width: 100%;
-  object-fit: cover;
-  image-rendering: -webkit-optimize-contrast;
-}
-
-/* TABLETS & SMALL LAPTOPS (<= 1024px) */
-@media (max-width: 1024px) {
-  .hero-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
-  .pillars-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  .services-grid-3x2 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  .real-fleet-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
-  .areas-grid-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .contact-layout-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-  }
-}
-
-/* TABLET PORTRAIT & FOLDABLES (<= 868px) */
-@media (max-width: 868px) {
-  /* Navigation & Mobile Hamburger */
-  .mobile-toggle {
-    display: block;
-  }
-  .mobile-toggle.open span:nth-child(1) {
-    transform: translateY(7.5px) rotate(45deg);
-  }
-  .mobile-toggle.open span:nth-child(2) {
-    opacity: 0;
-  }
-  .mobile-toggle.open span:nth-child(3) {
-    transform: translateY(-7.5px) rotate(-45deg);
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: #061122;
-    flex-direction: column;
-    padding: 24px 20px;
-    gap: 16px;
-    border-bottom: 1px solid rgba(0, 210, 255, 0.25);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75);
-    transform: translateY(-120%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    z-index: 999;
-  }
-  .nav-menu.active {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .nav-link {
-    font-size: 1.05rem;
-    padding: 10px 0;
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  /* Top Bar */
-  .top-bar-left {
-    display: none;
-  }
-  .top-bar .container {
-    justify-content: center;
-  }
-
-  /* Hero Section */
-  .hero-section {
-    min-height: auto;
-    padding: 60px 0 80px;
-  }
-  .hero-bg-wrapper {
-    width: 100%;
-    opacity: 0.85;
-  }
-  .hero-bg-img {
-    object-position: center 30%;
-  }
-  .hero-gradient-overlay {
-    background: linear-gradient(
-      180deg, 
-      rgba(5, 13, 26, 0.82) 0%, 
-      rgba(5, 13, 26, 0.65) 60%, 
-      rgba(5, 13, 26, 0.92) 100%
-    );
-  }
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  .hero-description {
-    font-size: 1rem;
-    margin-bottom: 24px;
-  }
-
-  /* Story Grid & Images */
-  .story-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .story-img-main {
-    height: 320px;
-  }
-  .story-content {
-    padding-left: 0;
-  }
-
-  /* Water Finding Grid */
-  .water-finding-showcase-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  /* Page Banners */
-  .page-banner {
-    padding: 50px 0 55px;
-  }
-  .page-banner-title {
-    font-size: 2.5rem;
-  }
-
-  /* Floating Buttons */
-  .floating-call-wrap {
-    bottom: 80px;
-    right: 18px;
-  }
-  .floating-call {
-    bottom: 80px;
-    right: 18px;
-    width: 52px;
-    height: 52px;
-  }
-  .floating-call svg {
-    width: 22px;
-    height: 22px;
-  }
-  .floating-whatsapp {
-    bottom: 18px;
-    right: 18px;
-    width: 52px;
-    height: 52px;
-  }
-  .floating-whatsapp svg {
-    width: 26px;
-    height: 26px;
-  }
-  .floating-call-menu {
-    position: absolute;
-    bottom: 60px;
-    right: 0;
-    min-width: 250px;
-    max-width: calc(100vw - 36px);
-  }
-}
-
-/* STANDARD MOBILE PHONES (<= 640px) */
-@media (max-width: 640px) {
-  /* Layout Paddings & Titles */
-  .container {
-    padding: 0 16px;
-  }
-  .story-section,
-  .real-fleet-section,
-  .services-section,
-  .gallery-section,
-  .areas-section,
-  .contact-section,
-  .pillars-section,
-  .water-finding-spotlight {
-    padding: 48px 0 55px;
-  }
-  .section-title {
-    font-size: 1.95rem;
-    line-height: 1.25;
-  }
-  .section-description {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  .section-header-center {
-    margin-bottom: 32px;
-  }
-
-  /* Hero Section */
-  .hero-title {
-    font-size: 2.1rem;
-    line-height: 1.2;
-  }
-  .hero-cta-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-  }
-  .hero-cta-group .btn-call-hero,
-  .hero-cta-group .btn-whatsapp,
-  .hero-cta-group .btn-primary,
-  .hero-cta-group .btn-outline-play {
-    width: 100%;
-    padding: 11px 12px;
-    font-size: 0.88rem;
-    justify-content: center;
-  }
-  .hero-stats-inline {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-    padding-bottom: 20px;
-  }
-  .hero-stat-box {
-    padding: 8px 12px;
-  }
-  .hero-stat-val {
-    font-size: 1.25rem;
-  }
-  .hero-stat-lbl {
-    font-size: 0.74rem;
-  }
-
-  /* Single Column Cards */
-  .hero-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .real-fleet-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .pillars-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .services-grid-3x2 {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  .features-2x2-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding-bottom: 30px;
-  }
-  .footer-bottom .container {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
-  }
-
-  /* Responsive Image Heights & Aspect Ratios */
-  .story-img-main {
-    height: 250px;
-    border-radius: var(--radius-md);
-  }
-  .service-img-wrap,
-  .fleet-img-wrap {
-    height: 200px;
-  }
-  .gallery-card {
-    height: 230px;
-  }
-  .water-device-img-wrap {
-    min-height: 200px;
-  }
-  .water-detector-img {
-    max-height: 200px;
-  }
-
-  /* Forms & Modals */
-  .form-grid-2 {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .form-input, .form-select, .form-textarea {
-    font-size: 16px !important; /* Critical: Prevents iOS auto-zoom on input focus */
-    padding: 11px 14px;
-  }
-  .contact-form-card,
-  .contact-info-card {
-    padding: 22px 18px;
-    border-radius: var(--radius-md);
-  }
-  .modal-dialog {
-    margin: 12px;
-    max-height: calc(100vh - 30px);
-    overflow-y: auto;
-  }
-  .modal-header {
-    padding: 18px 20px;
-  }
-  .modal-body {
-    padding: 20px 16px;
-  }
-
-  /* CTA Strip */
-  .cta-banner-strip {
-    padding: 40px 0;
-    text-align: center;
-  }
-  .cta-banner-content {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .cta-banner-left h3 {
-    font-size: 1.6rem;
-  }
-  .cta-banner-left p {
-    font-size: 0.95rem;
-  }
-  .cta-banner-actions {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-  }
-  .cta-banner-actions .btn-call,
-  .cta-banner-actions .btn-whatsapp,
-  .cta-banner-actions .btn-primary {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Water Finding Spotlight */
-  .water-device-card {
-    padding: 24px 16px;
-  }
-  .water-adv-card {
-    padding: 16px 18px;
-    gap: 14px;
-  }
-  .water-cta-box {
-    padding: 20px 16px;
-    flex-direction: column;
-    text-align: center;
-  }
-  .water-cta-actions {
-    width: 100%;
-    flex-direction: column;
-  }
-  .water-cta-actions a {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Filter Tabs */
-  .filter-container {
-    gap: 6px;
-    margin-bottom: 28px;
-  }
-  .filter-btn {
-    padding: 7px 14px;
-    font-size: 0.82rem;
-  }
-
-  /* Mobile Gallery Card Overlay (Visible on touch devices) */
-  .gallery-overlay {
-    opacity: 1;
-    background: linear-gradient(to top, rgba(5, 13, 26, 0.92) 0%, rgba(5, 13, 26, 0.25) 50%, transparent 100%);
-    padding: 14px 16px;
-  }
-  .gallery-card-title {
-    font-size: 1rem;
-  }
-  .gallery-zoom-icon {
-    display: none;
-  }
-}
-
-/* COMPACT SMARTPHONES (<= 480px) */
-@media (max-width: 480px) {
-  /* Navigation Bar */
-  .nav-container {
-    padding: 10px 14px;
-  }
-  .brand-name {
-    font-size: 1.2rem;
-  }
-  .brand-sub {
-    font-size: 0.65rem;
-    letter-spacing: 1.5px;
-  }
-  .logo-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 9px;
-  }
-  .logo-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-  .nav-actions {
-    gap: 6px;
-  }
-  .btn-call-nav {
-    padding: 7px 10px;
-    font-size: 0.78rem;
-    gap: 5px;
-  }
-  .btn-call-nav span {
-    display: none; /* Keep phone icon only on small mobile to prevent header overflow */
-  }
-  .btn-call-nav svg {
-    width: 16px;
-    height: 16px;
-  }
-  #headerQuoteBtn {
-    display: none;
-  }
-
-  /* Top Bar */
-  .top-bar-right {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
-  }
-  .top-call-group {
-    font-size: 0.74rem;
-    padding: 3px 10px;
-    gap: 4px;
-  }
-  .top-whatsapp-link {
-    font-size: 0.74rem;
-    padding: 3px 10px;
-  }
-
-  /* Hero Section */
-  .hero-title {
-    font-size: 1.85rem;
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-  .hero-eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-  }
-  .hero-cta-group {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-  .hero-stats-inline {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  /* Story Badge */
-  .story-badge-floating {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin: -20px auto 0;
-    max-width: 92%;
-    padding: 12px 16px;
-  }
-  .story-badge-text strong {
-    font-size: 1.1rem;
-  }
-
-  /* Page Banners */
-  .page-banner {
-    padding: 36px 0 40px;
-  }
-  .page-banner-title {
-    font-size: 1.85rem;
-    line-height: 1.2;
-  }
-  .page-banner-desc {
-    font-size: 0.92rem;
-  }
-
-  /* Floating Action Buttons */
-  .floating-call-wrap {
-    bottom: 74px;
-    right: 14px;
-  }
-  .floating-call {
-    bottom: 74px;
-    right: 14px;
-    width: 48px;
-    height: 48px;
-  }
-  .floating-whatsapp {
-    bottom: 14px;
-    right: 14px;
-    width: 48px;
-    height: 48px;
-  }
-  .floating-call-menu {
-    bottom: 56px;
-    right: 0;
-    width: 260px;
-    max-width: calc(100vw - 28px);
-  }
-
-  /* Lightbox */
-  .lightbox-modal {
-    padding: 8px;
-  }
-  .lightbox-img-wrap img {
-    max-height: 70vh;
-  }
-}
-
-/* EXTRA SMALL SCREENS (<= 360px) */
-@media (max-width: 360px) {
-  .hero-title {
-    font-size: 1.65rem;
-  }
-  .section-title {
-    font-size: 1.65rem;
-  }
-  .page-banner-title {
-    font-size: 1.65rem;
-  }
-  .top-call-group {
-    font-size: 0.7rem;
-    padding: 2px 8px;
-  }
-  .water-adv-card {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-/* ==========================================================================
    ALIVE & INTERACTIVE LIVING DESIGN SYSTEM ENHANCEMENTS
    ========================================================================== */
 
@@ -3259,7 +2767,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(4, 20, 42, 0.85);
+  background: rgba(14, 34, 62, 0.85);
   border: 1px solid rgba(0, 210, 255, 0.45);
   padding: 6px 16px;
   border-radius: var(--radius-pill);
@@ -3269,14 +2777,14 @@ img {
   letter-spacing: 0.5px;
   margin-bottom: 18px;
   backdrop-filter: blur(8px);
-  box-shadow: 0 4px 20px rgba(0, 102, 204, 0.35);
+  box-shadow: 0 4px 18px rgba(0, 102, 204, 0.25);
   animation: floatSubtle 4s ease-in-out infinite;
 }
 
 .live-pulse-beacon {
   position: relative;
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   background: #10b981;
   border-radius: 50%;
   display: inline-block;
@@ -3302,10 +2810,10 @@ img {
 
 @keyframes floatSubtle {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-5px); }
 }
 
-/* 3. Dual Call Buttons (Header, Hero & CTA) */
+/* 3. Dual Call Buttons (Header Desktop) */
 .nav-call-dual {
   display: flex;
   flex-direction: column;
@@ -3378,48 +2886,33 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: linear-gradient(135deg, rgba(0, 87, 183, 0.9) 0%, rgba(0, 136, 255, 0.8) 100%);
-  border: 1.5px solid rgba(0, 210, 255, 0.6);
+  background: linear-gradient(135deg, rgba(0, 87, 183, 0.95) 0%, rgba(0, 136, 255, 0.85) 100%);
+  border: 1.5px solid rgba(0, 210, 255, 0.5);
   padding: 10px 18px;
   border-radius: var(--radius-md);
   color: #ffffff;
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.35);
+  box-shadow: 0 4px 18px rgba(0, 102, 204, 0.3);
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
-.btn-dual-call-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  transition: 0.5s;
-}
-
-.btn-dual-call-card:hover::before {
-  left: 100%;
-}
-
 .btn-dual-call-card.alt-line {
-  background: linear-gradient(135deg, rgba(15, 76, 129, 0.9) 0%, rgba(13, 148, 136, 0.8) 100%);
-  border-color: rgba(45, 212, 191, 0.6);
-  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.3);
+  background: linear-gradient(135deg, rgba(15, 76, 129, 0.95) 0%, rgba(13, 148, 136, 0.85) 100%);
+  border-color: rgba(45, 212, 191, 0.55);
+  box-shadow: 0 4px 18px rgba(13, 148, 136, 0.25);
 }
 
 .btn-dual-call-card:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(0, 136, 255, 0.6);
+  box-shadow: 0 8px 25px rgba(0, 136, 255, 0.5);
   border-color: #ffffff;
   color: #ffffff;
 }
 
 .btn-dual-call-card.alt-line:hover {
-  box-shadow: 0 10px 30px rgba(45, 212, 191, 0.6);
+  box-shadow: 0 8px 25px rgba(45, 212, 191, 0.5);
 }
 
 .dual-call-icon {
@@ -3440,8 +2933,8 @@ img {
 
 @keyframes phoneRing {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-15deg); }
-  75% { transform: rotate(15deg); }
+  25% { transform: rotate(-12deg); }
+  75% { transform: rotate(12deg); }
 }
 
 .dual-call-meta {
@@ -3469,7 +2962,7 @@ img {
   color: #ffffff;
 }
 
-/* 4. Live Groundwater Radar Scanner Animation */
+/* 4. Live Groundwater Radar Scanner Widget */
 .water-radar-widget {
   position: relative;
   width: 52px;
@@ -3516,7 +3009,7 @@ img {
   50% { opacity: 1; transform: scale(1.4); }
 }
 
-/* 5. 3D Tilt Card Effects & Living Sheen */
+/* 5. 3D Tilt Card Effects */
 .tilt-card {
   transform-style: preserve-3d;
   transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
@@ -3532,7 +3025,7 @@ img {
   bottom: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 210, 255, 0.15), transparent 70%);
+  background: radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 210, 255, 0.12), transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -3606,24 +3099,24 @@ img {
   border-radius: var(--radius-sm);
   font-weight: 700;
   font-size: 0.95rem;
-  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.35);
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .btn-cta-call.alt-line {
   background: linear-gradient(135deg, #0f4c81 0%, #0d9488 100%);
-  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.35);
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
 }
 
 .btn-cta-call:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 136, 255, 0.6);
+  box-shadow: 0 8px 24px rgba(0, 136, 255, 0.5);
   color: #ffffff;
 }
 
 .btn-cta-call.alt-line:hover {
-  box-shadow: 0 8px 24px rgba(45, 212, 191, 0.6);
+  box-shadow: 0 8px 24px rgba(45, 212, 191, 0.5);
 }
 
 .cta-tag {
@@ -3635,13 +3128,13 @@ img {
   letter-spacing: 0.5px;
 }
 
-/* 9. Floating Quick Call Dual Menu Enhancement */
+/* 9. Floating Quick Call Dual Menu */
 .floating-call-menu {
   padding: 16px;
   border-radius: var(--radius-md);
-  background: rgba(5, 13, 26, 0.96);
-  border: 1.5px solid rgba(0, 210, 255, 0.4);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 102, 204, 0.35);
+  background: rgba(11, 26, 48, 0.97);
+  border: 1.5px solid rgba(0, 210, 255, 0.35);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 102, 204, 0.25);
   backdrop-filter: blur(14px);
 }
 
@@ -3689,4 +3182,723 @@ img {
 
 .floating-call-item:hover .call-number {
   color: var(--cyan-accent);
+}
+
+/* ==========================================================================
+   ANIMATIONS & SCROLL-REVEAL SYSTEM (Silky & Feather-Light)
+   ========================================================================== */
+
+/* 1. Scroll-triggered Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 2. Shimmer Sheen Sweep on Hover */
+.btn-primary, .btn-cta-call, .btn-dual-call-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before, .btn-cta-call::before, .btn-dual-call-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-primary:hover::before, .btn-cta-call:hover::before, .btn-dual-call-card:hover::before {
+  transform: translateX(200%);
+}
+
+/* 3. Card Elevation & Soft Border Transitions */
+.service-card, .service-full-card, .pillar-card, .fleet-card, .gallery-card, .area-card, .water-adv-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover, .service-full-card:hover, .pillar-card:hover, .fleet-card:hover, .gallery-card:hover, .area-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+  border-color: rgba(0, 102, 204, 0.28);
+}
+
+/* 4. Pulse Rings for Live Elements */
+@keyframes ringBreathe {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6)); }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+.brand-badge-ring {
+  animation: ringBreathe 3s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   COMPREHENSIVE RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+/* Universal Responsive Image & Media Rules */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.service-img-wrap img,
+.fleet-img-wrap img,
+.gallery-card img,
+.story-img-main {
+  width: 100%;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* ==========================================================================
+   BREAKPOINT 1: TABLETS & SMALL LAPTOPS (<= 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .services-grid-3x2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .real-fleet-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .areas-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .contact-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 2: TABLETS PORTRAIT & FOLDABLES (<= 868px)
+   Mobile Header & Drawer Menu Activates Here
+   ========================================================================== */
+@media (max-width: 868px) {
+  /* Hide Desktop Call Pills & Desktop Quote Button from Header Bar */
+  .nav-call-dual,
+  #headerQuoteBtn {
+    display: none !important;
+  }
+
+  /* Show Compact Mobile Call Icon Button & Hamburger Toggle */
+  .mobile-header-call {
+    display: inline-flex;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+  .mobile-toggle.open span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  .mobile-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-toggle.open span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  /* Mobile Navigation Drawer */
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    background: rgba(11, 26, 48, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 24px 20px 36px;
+    gap: 12px;
+    border-bottom: 2px solid var(--primary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    z-index: 9999;
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+    padding: 12px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Show Dedicated Mobile Direct Call CTA Section in Drawer */
+  .nav-mobile-cta {
+    display: flex;
+  }
+
+  /* Top Bar */
+  .top-bar-left {
+    display: none;
+  }
+  .top-bar .container {
+    justify-content: center;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    min-height: auto;
+    padding: 55px 0 75px;
+  }
+  .hero-bg-wrapper {
+    width: 100%;
+    opacity: 0.9;
+  }
+  .hero-bg-img {
+    object-position: center 30%;
+  }
+  .hero-gradient-overlay {
+    background: linear-gradient(
+      180deg, 
+      rgba(11, 26, 48, 0.78) 0%, 
+      rgba(11, 26, 48, 0.55) 60%, 
+      rgba(11, 26, 48, 0.88) 100%
+    );
+  }
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  .hero-description {
+    font-size: 0.98rem;
+    margin-bottom: 24px;
+  }
+
+  /* Story Grid & Images */
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .story-img-main {
+    height: 320px;
+  }
+  .story-content {
+    padding-left: 0;
+  }
+
+  /* Water Finding Grid */
+  .water-finding-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* Page Banners */
+  .page-banner {
+    padding: 48px 0 52px;
+  }
+  .page-banner-title {
+    font-size: 2.3rem;
+  }
+
+  /* Floating Buttons */
+  .floating-call-wrap {
+    bottom: 80px;
+    right: 18px;
+  }
+  .floating-call {
+    bottom: 80px;
+    right: 18px;
+    width: 50px;
+    height: 50px;
+  }
+  .floating-call svg {
+    width: 22px;
+    height: 22px;
+  }
+  .floating-whatsapp {
+    bottom: 18px;
+    right: 18px;
+    width: 50px;
+    height: 50px;
+  }
+  .floating-whatsapp svg {
+    width: 26px;
+    height: 26px;
+  }
+  .floating-call-menu {
+    position: absolute;
+    bottom: 58px;
+    right: 0;
+    min-width: 250px;
+    max-width: calc(100vw - 36px);
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 3: STANDARD MOBILE PHONES (<= 640px)
+   Optimized for iPhones, Samsung, Pixels
+   ========================================================================== */
+@media (max-width: 640px) {
+  /* Layout Paddings & Titles */
+  .container {
+    padding: 0 16px;
+  }
+  .story-section,
+  .real-fleet-section,
+  .services-section,
+  .gallery-section,
+  .areas-section,
+  .contact-section,
+  .pillars-section,
+  .water-finding-spotlight {
+    padding: 42px 0 50px;
+  }
+  .section-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+  .section-description {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+  .section-header-center {
+    margin-bottom: 28px;
+  }
+
+  /* Hero Section Mobile Experience */
+  .hero-title {
+    font-size: clamp(1.85rem, 6.8vw, 2.3rem);
+    line-height: 1.22;
+  }
+
+  /* Clean full-width stacked CTA button column */
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-dual-call-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn-dual-call-card {
+    width: 100%;
+    padding: 12px 16px;
+    justify-content: flex-start;
+  }
+
+  .hero-cta-group .btn-whatsapp,
+  .hero-cta-group .btn-primary {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+    justify-content: center;
+  }
+
+  /* Hero Stats: Clean 2x2 Grid */
+  .hero-stats-inline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    padding-bottom: 18px;
+  }
+  .hero-stat-box {
+    padding: 10px 12px;
+  }
+  .hero-stat-val {
+    font-size: 1.25rem;
+  }
+  .hero-stat-lbl {
+    font-size: 0.74rem;
+  }
+
+  /* Single Column Cards */
+  .hero-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .real-fleet-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .services-grid-3x2 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .features-2x2-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding-bottom: 26px;
+  }
+  .footer-bottom .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  /* Responsive Aspect Ratios */
+  .story-img-main {
+    height: 240px;
+    border-radius: var(--radius-md);
+  }
+  .service-img-wrap,
+  .fleet-img-wrap {
+    height: 190px;
+  }
+  .gallery-card {
+    height: 230px;
+  }
+  .water-device-img-wrap {
+    min-height: 190px;
+  }
+  .water-detector-img {
+    max-height: 190px;
+  }
+
+  /* Forms & Modals */
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .form-input, .form-select, .form-textarea {
+    font-size: 16px !important; /* Critical: Prevents iOS auto-zoom on input focus */
+    padding: 11px 14px;
+  }
+  .contact-form-card,
+  .contact-info-card {
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+  .modal-dialog {
+    margin: 12px;
+    max-height: calc(100vh - 30px);
+    overflow-y: auto;
+  }
+  .modal-header {
+    padding: 16px 18px;
+  }
+  .modal-body {
+    padding: 18px 14px;
+  }
+
+  /* CTA Strip */
+  .cta-banner-strip {
+    padding: 38px 0;
+    text-align: center;
+  }
+  .cta-banner-content {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .cta-banner-left h3 {
+    font-size: 1.55rem;
+  }
+  .cta-banner-left p {
+    font-size: 0.92rem;
+  }
+  .cta-dual-numbers {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .btn-cta-call {
+    width: 100%;
+    justify-content: center;
+  }
+  .cta-banner-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .cta-banner-actions .btn-whatsapp,
+  .cta-banner-actions .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Water Finding Spotlight */
+  .water-device-card {
+    padding: 20px 14px;
+  }
+  .water-adv-card {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+  .water-cta-box {
+    padding: 18px 14px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .water-cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .water-cta-actions a,
+  .water-cta-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Gallery Horizontal Swipeable Filter Tabs (No wrapping!) */
+  .filter-container {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    gap: 8px;
+    padding: 4px 2px 10px;
+    margin-bottom: 24px;
+    scrollbar-width: none;
+  }
+  .filter-container::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-btn {
+    padding: 7px 15px;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+  }
+
+  /* Mobile Touch Gallery Overlay (Always legible) */
+  .gallery-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(11, 26, 48, 0.92) 0%, rgba(11, 26, 48, 0.3) 50%, transparent 100%);
+    padding: 14px 16px;
+  }
+  .gallery-card-title {
+    font-size: 1rem;
+  }
+  .gallery-zoom-icon {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 4: COMPACT PHONES (<= 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* Navigation Bar */
+  .nav-container {
+    padding: 10px 12px;
+  }
+  .brand-name {
+    font-size: 1.25rem;
+  }
+  .brand-sub {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+  }
+  .logo-crest {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Top Bar */
+  .top-bar-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  .top-call-group {
+    font-size: 0.74rem;
+    padding: 3px 10px;
+    gap: 4px;
+  }
+  .top-whatsapp-link {
+    font-size: 0.74rem;
+    padding: 3px 10px;
+  }
+
+  /* Hero Section */
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .hero-eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  /* Story Badge */
+  .story-badge-floating {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: -16px auto 0;
+    max-width: 95%;
+    padding: 10px 14px;
+  }
+  .story-badge-text strong {
+    font-size: 1.05rem;
+  }
+
+  /* Page Banners */
+  .page-banner {
+    padding: 36px 0 40px;
+  }
+  .page-banner-title {
+    font-size: 1.85rem;
+    line-height: 1.2;
+  }
+  .page-banner-desc {
+    font-size: 0.9rem;
+  }
+
+  /* Floating Action Buttons */
+  .floating-call-wrap {
+    bottom: 74px;
+    right: 14px;
+  }
+  .floating-call {
+    bottom: 74px;
+    right: 14px;
+    width: 46px;
+    height: 46px;
+  }
+  .floating-whatsapp {
+    bottom: 14px;
+    right: 14px;
+    width: 46px;
+    height: 46px;
+  }
+  .floating-call-menu {
+    bottom: 54px;
+    right: 0;
+    width: 250px;
+    max-width: calc(100vw - 28px);
+  }
+
+  /* Lightbox Modal */
+  .lightbox-modal {
+    padding: 8px;
+  }
+  .lightbox-img-wrap img {
+    max-height: 65vh;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 5: EXTRA SMALL SCREENS (<= 360px)
+   ========================================================================== */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.55rem;
+  }
+  .section-title {
+    font-size: 1.55rem;
+  }
+  .page-banner-title {
+    font-size: 1.55rem;
+  }
+  .brand-name {
+    font-size: 1.15rem;
+  }
+  .top-call-group {
+    font-size: 0.68rem;
+    padding: 2px 6px;
+  }
+  .water-adv-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }

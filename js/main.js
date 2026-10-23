@@ -8,17 +8,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.getElementById('navMenu');
 
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+    const toggleMenu = () => {
+      const isActive = navMenu.classList.toggle('active');
       mobileToggle.classList.toggle('open');
+      document.body.style.overflow = isActive ? 'hidden' : '';
+    };
+
+    const closeMenu = () => {
+      navMenu.classList.remove('active');
+      mobileToggle.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
     });
 
-    // Close menu when clicking link
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileToggle.classList.remove('open');
-      });
+    // Close menu when clicking nav links or actions
+    navMenu.querySelectorAll('.nav-link, .open-quote-modal, .btn-mobile-nav-call, .btn-whatsapp').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMenu();
+      }
     });
   }
 
@@ -71,6 +94,45 @@ document.addEventListener('DOMContentLoaded', () => {
   if (statsSection) {
     observer.observe(statsSection);
   }
+
+  // 3B. Universal Scroll-Reveal Animations (Lightweight & Smooth)
+  const revealSelectors = [
+    '.service-card',
+    '.service-full-card',
+    '.gallery-card',
+    '.pillar-card',
+    '.fleet-card',
+    '.stat-item',
+    '.area-card',
+    '.area-full-card',
+    '.contact-info-card',
+    '.contact-form-card',
+    '.water-device-card',
+    '.water-adv-card',
+    '.story-image-wrap',
+    '.story-content',
+    '.section-header-center',
+    '.cta-banner-strip'
+  ];
+
+  const revealTargets = document.querySelectorAll(revealSelectors.join(', '));
+  revealTargets.forEach(el => {
+    el.classList.add('reveal');
+  });
+
+  const scrollRevealObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -30px 0px'
+  });
+
+  revealTargets.forEach(el => scrollRevealObserver.observe(el));
 
   // 4. Quote Modal Handlers
   const quoteModal = document.getElementById('quoteModal');
@@ -432,36 +494,39 @@ _Sent from DSB Borewells Official Website_`;
     animateBubbles();
   }
 
-  // 13. Interactive 3D Card Tilt Physics (Cards feel alive on hover!)
-  const tiltCards = document.querySelectorAll('.tilt-card, .hero-service-card, .fleet-card, .btn-dual-call-card');
-  tiltCards.forEach((card) => {
-    // Add glow element if not present
-    if (!card.querySelector('.tilt-card-glow')) {
-      const glow = document.createElement('div');
-      glow.className = 'tilt-card-glow';
-      card.appendChild(glow);
-    }
+  // 13. Interactive 3D Card Tilt Physics (Desktop pointer devices only for peak mobile performance)
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+  if (!isTouchDevice) {
+    const tiltCards = document.querySelectorAll('.tilt-card, .hero-service-card, .fleet-card, .btn-dual-call-card');
+    tiltCards.forEach((card) => {
+      // Add glow element if not present
+      if (!card.querySelector('.tilt-card-glow')) {
+        const glow = document.createElement('div');
+        glow.className = 'tilt-card-glow';
+        card.appendChild(glow);
+      }
 
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -7;
-      const rotateY = ((x - centerX) / centerX) * 7;
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
 
-      card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
+        card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
     });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
+  }
 
   // 14. Liquid Ripple Wave on Button Click
   const rippleTargets = document.querySelectorAll('.btn-primary, .btn-whatsapp, .btn-call, .btn-call-hero, .btn-dual-call-card, .btn-cta-call');
